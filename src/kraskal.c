@@ -1,6 +1,6 @@
-#include <stdio.h>
-#include "kraskal.h"
-
+#include <stdlib.h>  
+#include <stdio.h>   
+#include "kraskal.h" 
 
 void sort(Edge* edges, int n) {
     for (int i = 0; i < n - 1; i++) {
@@ -26,7 +26,7 @@ int group(int* par, int i) {
 int kraskal(int cnt, int cnt_edge, Edge* edges) {
     sort(edges, cnt_edge);
     for(int i=0; i<cnt_edge; i++) printf("%d ", edges[i].cost);
-    int par[cnt];
+    int* par = (int*)malloc(cnt * sizeof(int));
     for (int i = 0; i < cnt; i++) {
         par[i] = i; 
     }
@@ -50,5 +50,6 @@ int kraskal(int cnt, int cnt_edge, Edge* edges) {
         }
     }
     printf("Общая длина пути: %d\n", summ_cost);
+    free(par);
     return summ_cost;
 }

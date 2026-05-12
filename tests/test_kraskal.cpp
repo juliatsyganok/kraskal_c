@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 extern "C" {
-    #include "kraskal.h"
+    #include "kraskal.h" 
 }
 
 TEST(KruskalTest, StandardGraph) {
